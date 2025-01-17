@@ -1,3 +1,22 @@
-<nav>
+---
+import IconFacebook from "../assets/IconFacebook.svg";
+import IconInstagram from "../assets/IconInstagram.svg";
+import IconTwitter from "../assets/IconTwitter.svg";
+---
+
+<nav class="bg bg-pink-200 p-10">
+  <p>Mathilde Gatefait MMI 1 TP B1</p>
   <p>© 2021, Tous droits réservés</p>
+  <div class="flex justify-center p-10 space-x-3">
+    <IconFacebook />
+    <IconInstagram />
+    <IconTwitter />
+  </div>
 </nav>
+<style>
+  nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
