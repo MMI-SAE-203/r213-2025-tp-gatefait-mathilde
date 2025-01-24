@@ -45,14 +45,23 @@ const offres = [
   <p class="m-10">
     Vous trouverez ici les futurs offres que propose notre site
   </p>
-  <ul>
-    {
-      offres.map((offre) => (
-        <li>
-          <Card {...offre} />
-        </li>
-      ))
-    }
-  </ul>
 
+  <div x-data="{ showFavorites: false }">
+    <div class="ml-5">
+      <button
+        @click="showFavorites = !showFavorites"
+        class="bg-blue-700 text-white font-bold py-2 px-4 rounded"
+      >
+        <span x-show="!showFavorites">Afficher les favoris</span>
+        <span x-show="showFavorites">Afficher tout</span>
+      </button>
+    </div>
+    <div x-show="!showFavorites">
+      {offres.map((offre) => <Card {...offre} />)}
+    </div>
+
+    <div x-show="showFavorites">
+      {offres.map((offre) => offre.favori && <Card {...offre} />)}
+    </div>
+  </div>
 </Base>
