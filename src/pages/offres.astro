@@ -46,6 +46,13 @@ const offres = [
     Vous trouverez ici les futurs offres que propose notre site
   </p>
   <ul>
-    {offres.map((offre) => <Card {...offre} />)}
+    {
+      offres.map((offre) => (
+        <li>
+          <Card {...offre} />
+        </li>
+      ))
+    }
   </ul>
+
 </Base>
