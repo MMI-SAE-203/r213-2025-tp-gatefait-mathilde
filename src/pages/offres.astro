@@ -54,34 +54,40 @@ const offres = [
     Vous trouverez ici les futurs offres que propose notre site
   </p>
   <div x-data="{ viewMode: 'grid' }" class="m-10">
-
-    <button
-      @click="viewMode = 'grid'"
-      :class="viewMode === 'grid' ? 'bg-blue-700' : 'bg-gray-300'"
-      class="text-white font-bold py-2 px-4 rounded mr-2">Afficher en grille</button>
-
-    <button
-      @click="viewMode = 'list'"
-      :class="viewMode === 'list' ? 'bg-blue-700' : 'bg-gray-300'"
-      class="text-white font-bold py-2 px-4 rounded">Afficher en liste</button>
-
     <div x-data="{ showFavorites: false }">
       <div class="ml-5">
         <button
+          @click="viewMode = 'grid'"
+          :class="viewMode === 'grid' ? 'bg-blue-700' : 'bg-gray-300'"
+          class="text-white font-bold py-2 px-4 rounded mr-2"
+          >Afficher en grille</button
+        >
+
+        <button
+          @click="viewMode = 'list'"
+          :class="viewMode === 'list' ? 'bg-blue-700' : 'bg-gray-300'"
+          class="text-white font-bold py-2 px-4 rounded"
+          >Afficher en liste</button
+        >
+        <button
           @click="showFavorites = !showFavorites"
-          class="bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          class="bg-blue-700 text-white font-bold py-2 px-4 rounded"
+        >
           <span x-show="!showFavorites">Afficher les favoris</span>
           <span x-show="showFavorites">Afficher tout</span>
         </button>
-      <div x-show="!showFavorites">
-          <div :class="viewMode === 'grid' ? 'grid grid-cols-3 gap-4': 'flex flex-col gap-4'">
+        <div x-show="!showFavorites">
+          <div
+            :class="viewMode === 'grid' ? 'grid grid-cols-3 gap-4': 'flex flex-col gap-4'"
+          >
             {offres.map((offre) => <Card {...offre} />)}
           </div>
-      </div>
+        </div>
 
-      <div x-show="showFavorites">{offres.map((offre) => offre.favoris && <Card {...offre} />)}
+        <div x-show="showFavorites">
+          {offres.map((offre) => offre.favoris && <Card {...offre} />)}
+        </div>
       </div>
     </div>
-  </div>
-  </Base
+  </div></Base
 >

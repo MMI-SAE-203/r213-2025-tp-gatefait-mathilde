@@ -9,5 +9,6 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   integrations: [tailwind()],
   adapter: netlify(),
-   experimental: { svg: true }
+   experimental: { svg: true },
+   output: "server"
 });
