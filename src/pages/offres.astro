@@ -3,6 +3,14 @@ import Header from "../components/Header.astro";
 import Base from "../layouts/Base.astro";
 import Footer from "../components/Footer.astro";
 import Card from "../components/Card.astro";
+import { getOffres } from "../backend.mjs";
+
+const offres = await getOffres();
+
+console.log(offres);
+
+
+/*
 const offres = [
   {
     adresse: "2821 Lake Sevilla, Palm Harbor, TX",
@@ -38,6 +46,7 @@ const offres = [
     imgUrl: "image3.png",
   },
 ];
+*/
 ---
 
 <Base titre="Offres">

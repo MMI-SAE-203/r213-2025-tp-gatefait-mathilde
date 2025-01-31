@@ -1,5 +1,5 @@
 ---
-const offre = Astro.props;
+const { ...offre } = Astro.props;
 ---
 
 <div style="background-color: rgb(205, 208, 214); padding: 30px; border-radius: 5px; p-4; margin: 20px;">
@@ -10,4 +10,6 @@ const offre = Astro.props;
     <p>Nb Chambre : {offre.nbChambres}</p>
     <p>Nb Sdb : {offre.nbSdb}</p>
     <p>Favori : {offre.favori}</p>
+    <img src={offre.imageUrl}/>
+    
 </div>
