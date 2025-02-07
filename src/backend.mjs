@@ -13,14 +13,11 @@ export async function getOffres() {
             maison.imageUrl = pb.files.getURL(maison, maison.image);
             return maison;
         });
-        
-        return data;
-    } catch (error) {
+        return data; } catch (error) {
         console.log('Une erreur est survenue en lisant la liste des maisons', error);
         return [];
     }
 } 
-
 
 export async function getOffre(id) {
     try {
@@ -34,3 +31,7 @@ export async function getOffre(id) {
 }
 
 
+export async function getSurface(surface) {
+const records = await pb.collection('maison').getFullList({ filter: `surface > ${surface}`}) ;
+return records ;
+}

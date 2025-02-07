@@ -10,15 +10,16 @@ if (!offre) {
 ---
 
 <Base titre={offre.nomMaison}>
-  <h2>{offre.nomMaison}</h2>
-  <ul>
-    <li>Adresse : {offre.adresse}</li>
-    <li>Prix : {offre.prix} €</li>
-    <li>Surface : {offre.surface} m²</li>
-    <li>Nb de chambre : {offre.nbSdb}</li>
-    <li>Nb de salle de bain : {offre.nbChambres}</li>
-    <li>Favoris : {offre.favoris}</li>
-    <img src={offre.imageUrl} />
-    
-  </ul>
+  <div class="">
+    <h2>{offre.nomMaison}</h2>
+    <ul>
+      <li>Adresse : {offre.adresse}</li>
+      <li>Prix : {offre.prix} €</li>
+      <li>Surface : {offre.surface} m²</li>
+      <li>Nb de chambre : {offre.nbSdb}</li>
+      <li>Nb de salle de bain : {offre.nbChambres}</li>
+      <li>Favoris : {offre.favoris}</li>
+      <img src={offre.imageUrl} />
+    </ul>
+  </div>
 </Base>

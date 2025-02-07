@@ -53,6 +53,7 @@ const offres = [
   <p class="m-10">
     Vous trouverez ici les futurs offres que propose notre site
   </p>
+
   <div x-data="{ viewMode: 'grid' }" class="m-10">
     <div x-data="{ showFavorites: false }">
       <div class="ml-5">
@@ -62,7 +63,6 @@ const offres = [
           class="text-white font-bold py-2 px-4 rounded mr-2"
           >Afficher en grille</button
         >
-
         <button
           @click="viewMode = 'list'"
           :class="viewMode === 'list' ? 'bg-blue-700' : 'bg-gray-300'"
@@ -76,6 +76,7 @@ const offres = [
           <span x-show="!showFavorites">Afficher les favoris</span>
           <span x-show="showFavorites">Afficher tout</span>
         </button>
+        
         <div x-show="!showFavorites">
           <div
             :class="viewMode === 'grid' ? 'grid grid-cols-3 gap-4': 'flex flex-col gap-4'"
@@ -87,6 +88,7 @@ const offres = [
         <div x-show="showFavorites">
           {offres.map((offre) => offre.favoris && <Card {...offre} />)}
         </div>
+
       </div>
     </div>
   </div>
