@@ -2,15 +2,9 @@
 const { ...offre } = Astro.props;
 ---
 
-<div style="background-color: rgb(205, 208, 214); padding: 30px; border-radius: 5px; p-4; margin: 20px;">
-    <h2 class="font-bold text-2xl">{offre.nomMaison}</h2>
-    <p>Adresse : {offre.adresse}</p>
-    <p>Prix : {offre.prix}</p>
-    <p>Surface : {offre.surface}</p>
-    <p>Nb Chambre : {offre.nbChambres}</p>
-    <p>Nb Sdb : {offre.nbSdb}</p>
-    <p>Favori : {offre.favoris}</p>
-    <img src={offre.imageUrl}/>
-    
+<div
+  style="background-color: rgb(205, 208, 214); padding: 30px; border-radius: 5px; p-4; margin: 20px;"
+>
+  <h2 class="font-bold text-2xl">{offre.nomMaison}</h2>
+  <a href={`/offres/${offre.id}`}>Voir plus</a>
 </div>
-
