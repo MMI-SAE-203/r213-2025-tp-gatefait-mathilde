@@ -74,7 +74,9 @@ const offres = [
         <span x-show="!showFavorites">Afficher les favoris</span>
         <span x-show="showFavorites">Afficher tout</span>
       </button>
-
+      <a href="/surface" class="m-10 text-blue-500 underline"
+        >Voir les offres par surface</a
+      >
       <div x-show="!showFavorites">
         <div
           :class="viewMode === 'grid' ? 'grid grid-cols-3 gap-4': 'flex flex-col gap-4'"
@@ -91,5 +93,4 @@ const offres = [
       </div>
     </div>
   </div>
-  <a href="/surface" class="m-10 text-blue-500 underline ">Voir les offres par surface</a>
 </Base>
