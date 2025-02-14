@@ -1,5 +1,6 @@
 ---
 import { addOffre } from "../../backend.mjs";
+import Base from "../../layouts/Base.astro";
 
 let message = "";
 if (Astro.request.method === "POST") {
@@ -9,23 +10,34 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<h1 class="text-xl text-blue-700 font-bold">Ajouter une offre</h1>
-<form action="/offres/add" method="POST" enctype="multipart/form-data">
-  <input
-    type="text"
-    name="nomMaison"
-    placeholder="Nom de la maison"
-    required
-    class="w-full mt-2 p-2 border border-gray-300 rounded-md"
-  />
-  <input type="number" name="prix" placeholder="Prix" />
-  <input type="number" name="nbSdb" placeholder="Nombre de salles de bain" />
-  <input type="number" name="nbChambres" placeholder="Nombre de chambres" />
-  <input type="number" name="surface" placeholder="Superficie" />
-  <input type="text" name="adresse" placeholder="Adresse" />
+<Base>
+  <h1 class="text-xl p-5 text-blue-700 font-bold">Ajouter une offre</h1>
+  <form
+    class="m-5 max-w-lg mx-auto bg-white p-6 shadow-lg rounded-lg"
+    action="/offres/add"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <input
+      type="text"
+      name="nomMaison"
+      placeholder="Nom de la maison"
+      required
+      class="w-full mt-2 p-2 border border-gray-300 rounded-md"
+    />
+    <input type="number" name="prix" placeholder="Prix" />
+    <input type="number" name="nbSdb" placeholder="Nombre de salles de bain" />
+    <input type="number" name="nbChambres" placeholder="Nombre de chambres" />
+    <input type="number" name="surface" placeholder="Superficie" />
+    <input type="text" name="adresse" placeholder="Adresse" />
 
-  <input type="file" name="image" />
-  <button type="submit">Ajouter</button>
-</form>
+    <input type="file" name="image" />
+    <button
+      <button
+      class="px-4 py-2 bg-blue-700 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
+      type="submit">Ajouter</button
+    >
+  </form>
 
-<p>{message}</p>
+  <p>{message}</p>
+</Base>
