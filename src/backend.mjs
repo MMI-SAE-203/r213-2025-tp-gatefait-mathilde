@@ -35,3 +35,20 @@ export async function getSurface(surface) {
 const records = await pb.collection('maison').getFullList({ filter: `surface > ${surface}`}) ;
 return records ;
 }
+
+
+export async function addOffre(house) {
+    try {
+        await pb.collection('maison').create(house);
+        return {
+            success: true,
+            message: 'Offre ajoutée avec succès'
+        };
+    } catch (error) {
+        console.log('Une erreur est survenue en ajoutant la maison', error);
+        return {
+            success: false,
+            message: 'Une erreur est survenue en ajoutant la maison'
+        };
+    }
+}
