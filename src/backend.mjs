@@ -69,3 +69,29 @@ export async function filterByPrix(prixMin, prixMax) {
         return [];
     }
 }
+
+export async function allAgents() {
+    try {
+        let data = await pb.collection('agent').getFullList({
+            sort: '-created'
+        });
+        return data;
+    } catch (error) {
+        console.log('Une erreur est survenue en lisant la liste des agents', error);
+        return [];
+    }
+}
+
+
+export async function allMaisonsByAgentsId(id) {
+  try {
+    const allRecord = await pb.collection("maison").getFullList({
+      filter: `agent = "${id}"`, 
+      expand: "agent",
+    });
+    return allRecord;
+  } catch (error) {
+    console.error("Erreur lors de la récupération des maisons :", error);
+    return [];
+  }
+}

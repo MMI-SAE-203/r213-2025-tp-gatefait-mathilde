@@ -1,0 +1,41 @@
+---
+import Base from "../../layouts/Base.astro";
+import { allMaisonsByAgentsId, allAgents } from "../../backend.mjs";
+
+const { id } = Astro.params;
+
+const agents = await allAgents();
+const agent = agents.find((a) => a.id === id);
+
+const maisons = await allMaisonsByAgentsId(id);
+---
+
+<Base>
+  <h1 class="text-2xl m-7 uppercase font-bold text-pink-700">
+    Offres de {agent.nom} {agent.premon}
+  </h1>
+
+  <div class="p-4">
+    {
+      maisons.length > 0 ? (
+        maisons.map((maison) => (
+          <div class="border-2 border-gray-200 p-4 m-4">
+            <div class="">
+              <h2 class="text-xl font-semibold">{maison.nomMaison}</h2>
+              <ul>
+                <li>Adresse : {maison.adresse}</li>
+                <li>Prix : {maison.prix} €</li>
+                <li>Surface : {maison.surface} m²</li>
+                <li>Nb de chambre : {maison.nbSdb}</li>
+                <li>Nb de salle de bain : {maison.nbChambres}</li>
+              </ul>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p class="text-gray-500">Aucune offre disponible pour cet agent.</p>
+      )
+    }
+  </div>
+</Base>
+
